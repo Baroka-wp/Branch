@@ -1,4 +1,4 @@
-# Gestion des inscription au programme de formation 
+# Gestion des inscription au programme de formation
 
 > L'objectif de ce projet est de rendre plus automatique la gestion des contacts et des inscriptions lors des recrutments pour le programme de formation. Nous pourrons
 
@@ -6,7 +6,10 @@
 
 - Html
 - Css
+- Js
 - Linter
+Nous allons utliser linter pour avoir un code plus propre et uniforme
+[APPRENDRE A UTILISER LINTER ](https://github.com/irotori/linters/tree/master/html-css-js)
 - Figma (Template 5)
 
 ## Authors
