@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------------------- HEADER ----------------------------- */
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbar {
+  cursor: pointer;
+  position: absolute;
+  font-size: 22px;
+  width: 20px;
+  height: 20px;
+  right: 16px;
+  top: 19px;
+}
+
+.logo {
+  position: absolute;
+  width: 111px;
+  height: 74px;
+  left: 0;
+  top: 0;
+}
+
+/* -------------------------- HEADERLINE ----------------------------- */
+.headline {
+  display: flex;
+  flex-direction: column;
+  margin: 104px 16px 30px 16px;
+}
+
+.headline h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-style: normal;
+  color: #1a2236;
+  width: 200px;
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 100%;
+}
+
+.headline p {
+  color: #1a2236;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  padding: 20px 0 40px 0;
+}
+
+.header-button {
+  align-self: stretch;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  text-align: center;
+  color: #fff;
+  background: #1a2236;
+  height: 50px;
+  padding: 5px 42px;
+}
+
+.header-button:hover {
+  background: #fff;
+  color: #1a2236;
+  border: 1px solid #1a2236;
+  box-sizing: border-box;
+}
+
+.header-button:active {
+  background: #fff;
+  color: #1a2236;
+  border: 2px solid #1a2236;
+  box-sizing: border-box;
+}
