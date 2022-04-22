@@ -1,8 +1,6 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Gestion des inscription au programme de formation 
 
-# Portfolio
-
-> The goal here is to buil my Portfolio
+> L'objectif de ce projet est de rendre plus automatique la gestion des contacts et des inscriptions lors des recrutments pour le programme de formation. Nous pourrons
 
 ## Built With
 
@@ -15,8 +13,8 @@
 
 👤 **Author : IROTORI Baroka**
 
-- GitHub: [@githubhandle](https://github.com/Baroka-wp)
-- Twitter: [@twitterhandle](https://twitter.com/IrotoriB)
+- GitHub: [@Baroka-wp](https://github.com/Baroka-wp)
+- Twitter: [@IrotoriB](https://twitter.com/IrotoriB)
 - LinkedIn: [LinkedIn](www.linkedin.com/in/baroka)
 
 
