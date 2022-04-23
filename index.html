@@ -1,14 +1,421 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BRANCH</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<html lang ="fr">
+<head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Formulaire de pre-inscription</title>
+      <link rel="stylesheet" href="normalize.css">
+      <link rel="stylesheet" href="index.css">
   </head>
   <body>
-      <h1 class="hero">PROJET BRANCH</h1>
-      <p>HEllo world !</p>
+    <form action="index.html" method="post">
+
+      <h1>Formulaire de pré-inscription</h1>
+
+      <fieldset>
+        <legend><span class="number">1</span>Informations Basic</legend>
+        <label for="name">Nom & Prénoms :</label>
+        <input type="text" id="name" name="user_name" required>
+
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" name="user_email" placeholder="email@gmail.com" required>
+
+        <label for="Phone_Number">Numéro de téléphone:</label>
+        <input type="text" id="Phone_Number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="XX-XX-XX-XX-XX" required/>
+
+        <label for="mail">Gender:</label>
+            <div class="register-switch">
+              <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input" checked>
+              <label for="sex_f" class="register-switch-label">Female</label>
+              <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input">
+              <label for="sex_m" class="register-switch-label">Male</label>
+            </div>
+
+        <label for="Age"  >Age:</label>
+        <input type="number" min="0" id="Age" placeholder="0" required/>
+
+        <label for="pays" >Votre Pays D'origine :</label><br>
+     <select name="nationality" id="pays" required>
+  <option value="" disabled selected>--Veuillez Choisir--</option>
+  <option value="AF">L'Afghanistan</option>
+  <option value="AX">Iles Aland</option>
+  <option value="AL">Albanie</option>
+  <option value="DZ">Algérie</option>
+  <option value="AS">Samoa américaines</option>
+  <option value="AD">Andorre</option>
+  <option value="AO">L'Angola</option>
+  <option value="AI">Anguilla</option>
+  <option value="AQ">Antarctique</option>
+  <option value="AG">Antigua-et-Barbuda</option>
+  <option value="AR">Argentine</option>
+  <option value="AM">Arménie</option>
+  <option value="AW">Aruba</option>
+  <option value="AU">Australie</option>
+  <option value="AT">L'Autriche</option>
+  <option value="AZ">Azerbaïdjan</option>
+  <option value="BS">Bahamas</option>
+  <option value="BH">Bahreïn</option>
+  <option value="BD">Bangladesh</option>
+  <option value="BB">Barbade</option>
+  <option value="BY">Biélorussie</option>
+  <option value="BE">Belgique</option>
+  <option value="BZ">Belize</option>
+  <option value="BJ">Bénin</option>
+  <option value="BM">Bermudes</option>
+  <option value="BT">Bhoutan</option>
+  <option value="BO">Bolivie</option>
+  <option value="BQ">Bonaire, Saint-Eustache et Saba</option>
+  <option value="BA">Bosnie Herzégovine</option>
+  <option value="BW">Botswana</option>
+  <option value="BV">Île Bouvet</option>
+  <option value="BR">Brésil</option>
+  <option value="IO">Territoire britannique de l'océan Indien</option>
+  <option value="BN">Brunei Darussalam</option>
+  <option value="BG">Bulgarie</option>
+  <option value="BF">Burkina Faso</option>
+  <option value="BI">Burundi</option>
+  <option value="KH">Cambodge</option>
+  <option value="CM">Cameroun</option>
+  <option value="CA">Canada</option>
+  <option value="CV">Cap-Vert</option>
+  <option value="KY">Îles Caïmans</option>
+  <option value="CF">République centrafricaine</option>
+  <option value="TD">Tchad</option>
+  <option value="CL">Chili</option>
+  <option value="CN">Chine</option>
+  <option value="CX">L'île de noël</option>
+  <option value="CC">Îles Cocos (Keeling)</option>
+  <option value="CO">Colombie</option>
+  <option value="KM">Comores</option>
+  <option value="CG">Congo</option>
+  <option value="CD">Congo, République démocratique du Congo</option>
+  <option value="CK">les Îles Cook</option>
+  <option value="CR">Costa Rica</option>
+  <option value="CI">Côte d'Ivoire</option>
+  <option value="HR">Croatie</option>
+  <option value="CU">Cuba</option>
+  <option value="CW">Curacao</option>
+  <option value="CY">Chypre</option>
+  <option value="CZ">République Tchèque</option>
+  <option value="DK">Danemark</option>
+  <option value="DJ">Djibouti</option>
+  <option value="DM">Dominique</option>
+  <option value="DO">République dominicaine</option>
+  <option value="EC">Equateur</option>
+  <option value="EG">Egypte</option>
+  <option value="SV">Le Salvador</option>
+  <option value="GQ">Guinée Équatoriale</option>
+  <option value="ER">Érythrée</option>
+  <option value="EE">Estonie</option>
+  <option value="ET">Ethiopie</option>
+  <option value="FK">Îles Falkland (Malvinas)</option>
+  <option value="FO">Îles Féroé</option>
+  <option value="FJ">Fidji</option>
+  <option value="FI">Finlande</option>
+  <option value="FR">France</option>
+  <option value="GF">Guyane Française</option>
+  <option value="PF">Polynésie française</option>
+  <option value="TF">Terres australes françaises</option>
+  <option value="GA">Gabon</option>
+  <option value="GM">Gambie</option>
+  <option value="GE">Géorgie</option>
+  <option value="DE">Allemagne</option>
+  <option value="GH">Ghana</option>
+  <option value="GI">Gibraltar</option>
+  <option value="GR">Grèce</option>
+  <option value="GL">Groenland</option>
+  <option value="GD">Grenade</option>
+  <option value="GP">Guadeloupe</option>
+  <option value="GU">Guam</option>
+  <option value="GT">Guatemala</option>
+  <option value="GG">Guernesey</option>
+  <option value="GN">Guinée</option>
+  <option value="GW">Guinée-Bissau</option>
+  <option value="GY">Guyane</option>
+  <option value="HT">Haïti</option>
+  <option value="HM">Îles Heard et McDonald</option>
+  <option value="VA">Saint-Siège (État de la Cité du Vatican)</option>
+  <option value="HN">Honduras</option>
+  <option value="HK">Hong Kong</option>
+  <option value="HU">Hongrie</option>
+  <option value="IS">Islande</option>
+  <option value="IN">Inde</option>
+  <option value="ID">Indonésie</option>
+  <option value="IR">Iran (République islamique d</option>
+  <option value="IQ">Irak</option>
+  <option value="IE">Irlande</option>
+  <option value="IM">île de Man</option>
+  <option value="IT">Italie</option>
+  <option value="JM">Jamaïque</option>
+  <option value="JP">Japon</option>
+  <option value="JE">Jersey</option>
+  <option value="JO">Jordan</option>
+  <option value="KZ">Kazakhstan</option>
+  <option value="KE">Kenya</option>
+  <option value="KI">Kiribati</option>
+  <option value="KP">République populaire démocratique de Corée</option>
+  <option value="KR">Corée, République de</option>
+  <option value="XK">Kosovo</option>
+  <option value="KW">Koweit</option>
+  <option value="KG">Kirghizistan</option>
+  <option value="LA">République démocratique populaire lao</option>
+  <option value="LV">Lettonie</option>
+  <option value="LB">Liban</option>
+  <option value="LS">Lesotho</option>
+  <option value="LR">Libéria</option>
+  <option value="LY">Jamahiriya arabe libyenne</option>
+  <option value="LI">Liechtenstein</option>
+  <option value="LT">Lituanie</option>
+  <option value="LU">Luxembourg</option>
+  <option value="MO">Macao</option>
+  <option value="MK">Macédoine, ancienne République yougoslave de</option>
+  <option value="MG">Madagascar</option>
+  <option value="MW">Malawi</option>
+  <option value="MY">Malaisie</option>
+  <option value="MV">Maldives</option>
+  <option value="ML">Mali</option>
+  <option value="MT">Malte</option>
+  <option value="MH">Iles Marshall</option>
+  <option value="MQ">Martinique</option>
+  <option value="MR">Mauritanie</option>
+  <option value="MU">Ile Maurice</option>
+  <option value="YT">Mayotte</option>
+  <option value="MX">Mexique</option>
+  <option value="FM">Micronésie, États fédérés de</option>
+  <option value="MD">Moldova, République de</option>
+  <option value="MC">Monaco</option>
+  <option value="MN">Mongolie</option>
+  <option value="ME">Monténégro</option>
+  <option value="MS">Montserrat</option>
+  <option value="MA">Maroc</option>
+  <option value="MZ">Mozambique</option>
+  <option value="MM">Myanmar</option>
+  <option value="NA">Namibie</option>
+  <option value="NR">Nauru</option>
+  <option value="NP">Népal</option>
+  <option value="NL">Pays-Bas</option>
+  <option value="AN">Antilles néerlandaises</option>
+  <option value="NC">Nouvelle Calédonie</option>
+  <option value="NZ">Nouvelle-Zélande</option>
+  <option value="NI">Nicaragua</option>
+  <option value="NE">Niger</option>
+  <option value="NG">Nigeria</option>
+  <option value="NU">Niue</option>
+  <option value="NF">l'ile de Norfolk</option>
+  <option value="MP">Îles Mariannes du Nord</option>
+  <option value="NO">Norvège</option>
+  <option value="OM">Oman</option>
+  <option value="PK">Pakistan</option>
+  <option value="PW">Palau</option>
+  <option value="PS">Palestine</option>
+  <option value="PA">Panama</option>
+  <option value="PG">Papouasie Nouvelle Guinée</option>
+  <option value="PY">Paraguay</option>
+  <option value="PE">Pérou</option>
+  <option value="PH">Philippines</option>
+  <option value="PN">Pitcairn</option>
+  <option value="PL">Pologne</option>
+  <option value="PT">Le Portugal</option>
+  <option value="PR">Porto Rico</option>
+  <option value="QA">Qatar</option>
+  <option value="RE">Réunion</option>
+  <option value="RO">Roumanie</option>
+  <option value="RU">Fédération Russe</option>
+  <option value="RW">Rwanda</option>
+  <option value="BL">Saint Barthélemy</option>
+  <option value="SH">Sainte-Hélène</option>
+  <option value="KN">Saint-Christophe-et-Niévès</option>
+  <option value="LC">Sainte-Lucie</option>
+  <option value="MF">Saint Martin</option>
+  <option value="PM">Saint-Pierre-et-Miquelon</option>
+  <option value="VC">Saint-Vincent-et-les-Grenadines</option>
+  <option value="WS">Samoa</option>
+  <option value="SM">Saint Marin</option>
+  <option value="ST">Sao Tomé et Principe</option>
+  <option value="SA">Arabie Saoudite</option>
+  <option value="SN">Sénégal</option>
+  <option value="RS">Serbie</option>
+  <option value="CS">Serbie et Monténégro</option>
+  <option value="SC">les Seychelles</option>
+  <option value="SL">Sierra Leone</option>
+  <option value="SG">Singapour</option>
+  <option value="SX">St Martin</option>
+  <option value="SK">Slovaquie</option>
+  <option value="SI">Slovénie</option>
+  <option value="SB">Les îles Salomon</option>
+  <option value="SO">Somalie</option>
+  <option value="ZA">Afrique du Sud</option>
+  <option value="GS">Géorgie du Sud et îles Sandwich du Sud</option>
+  <option value="SS">Soudan du sud</option>
+  <option value="ES">Espagne</option>
+  <option value="LK">Sri Lanka</option>
+  <option value="SD">Soudan</option>
+  <option value="SR">Suriname</option>
+  <option value="SJ">Svalbard et Jan Mayen</option>
+  <option value="SZ">Swaziland</option>
+  <option value="SE">Suède</option>
+  <option value="CH">la Suisse</option>
+  <option value="SY">République arabe syrienne</option>
+  <option value="TW">Taiwan, Province de Chine</option>
+  <option value="TJ">Tadjikistan</option>
+  <option value="TZ">Tanzanie, République-Unie de</option>
+  <option value="TH">Thaïlande</option>
+  <option value="TL">Timor-Leste</option>
+  <option value="TG">Togo</option>
+  <option value="TK">Tokelau</option>
+  <option value="TO">Tonga</option>
+  <option value="TT">Trinité-et-Tobago</option>
+  <option value="TN">Tunisie</option>
+  <option value="TR">Turquie</option>
+  <option value="TM">Turkménistan</option>
+  <option value="TC">îles Turques-et-Caïques</option>
+  <option value="TV">Tuvalu</option>
+  <option value="UG">Ouganda</option>
+  <option value="UA">Ukraine</option>
+  <option value="AE">Emirats Arabes Unis</option>
+  <option value="GB">Royaume-Uni</option>
+  <option value="US">États-Unis</option>
+  <option value="UM">Îles mineures éloignées des États-Unis</option>
+  <option value="UY">Uruguay</option>
+  <option value="UZ">Ouzbékistan</option>
+  <option value="VU">Vanuatu</option>
+  <option value="VE">Venezuela</option>
+  <option value="VN">Viet Nam</option>
+  <option value="VG">Îles Vierges britanniques</option>
+  <option value="VI">Îles Vierges américaines, États-Unis</option>
+  <option value="WF">Wallis et Futuna</option>
+  <option value="EH">Sahara occidental</option>
+  <option value="YE">Yémen</option>
+  <option value="ZM">Zambie</option>
+  <option value="ZW">Zimbabwe</option>
+</select>
+
+      </fieldset>
+        <p class="Info_Tech"><span class="number">2</span>Informations Technique</p>
+      <fieldset>
+
+      <label for="Niveau_D'etude" >Niveau D'etude:</label>
+      <select name="Niveau D'etude" id="Niveau_D'etude" required>
+        <option value="" disabled selected>--Veuillez Choisir--</option>
+        <option value="Bac">Bac</option>
+        <option value="L">License</option>
+        <option value="M">Maitrise/Master</option>
+        <option value="FT">Formation Technique</option>
+        <option value="Dr">Doctorat</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <label for="Occupation_Actuelle" >Occupation Actuelle:</label>
+      <select name="Occupation Actuelle" id="Occupation_Actuelle" required>
+        <option value="" disabled selected >--Veuillez Choisir--</option>
+        <option value="Bac">Entrepreneur</option>
+        <option value="L">Etudiant en debut de cycle</option>
+        <option value="M">Etudiant en fin de cycle</option>
+        <option value="FT">Nouveau Bachelier</option>
+        <option value="Dr">Salarie prive</option>
+        <option value="Autre">Fonctionnaire de l'Etat</option>
+        <option value="Autre">Enseignant a plein temps</option>
+        <option value="Autre">Enseignant Vacataire</option>
+        <option value="Autre">Freelancer</option>
+        <option value="Autre">Autre</option>
+
+      </select>
+      <label for="Exp_Prog" >Avez Vous De L'experience en programation ?</label>
+      <select name="Experience En programation" id="Exp_Prog" required>
+        <option value="" disabled selected>--Veuillez Choisir--</option>
+        <option>Je l'ai etudie brievement a lecole </option>
+        <option>J'en ai jamais entendu parler</option>
+        <option>Je peux mettre en oeuvre des programmes</option>
+        <option>Je peux reparer un site web</option>
+        <option>J'ai une grande competence</option>
+        <option>Je connais bien la programation</option>
+      </select>
+
+          <label>Des Objectifs D'apres Formation ?</label>
+          <input type="checkbox"><label class="light" >Creer Votre Propre Entreprise</label><br>
+          <input type="checkbox"><label class="light" >Poursuivre les etudes</label><br>
+          <input type="checkbox"><label class="light" >Chercher de l'emploi</label><br>
+          <input type="checkbox"><label class="light" >Autre</label>
+          </fieldset>
+
+          <fieldset>
+            <label for="Cours_preparatoire">Participer au cours preparatoire ?</label>
+                <p class="form-explain" >Notre programme est très intensif. Nous avons remarqué que les abandons venez surtout de ceux qui n'avaient aucune base en programmation. Vu que vous êtes un débutant, nous vous recommandons de prendre un temps pour suivre nos cours préparatoire qui vont vous initier à la programmation. Vous pourrez ainsi passer plus facilement le test d'admission au programme et réussir la formation. Ce cours préparatoire dure 1 mois.</p>
+                <select name="Cours preparatoire" id="Cours_preparatoire" required>
+                  <option value="" disabled selected>--Veuillez Choisir--</option>
+                  <option>Oui, je voudrais Bien !! </option>
+                  <option>Non, j'ai deja une petite experience.</option>
+                </select>
+          </fieldset>
+
+          <fieldset>
+          <label for="Disponibilite" >[Votre disponibilité] Sachant que la formation dure 4 mois plus 1 mois de stage, pensez-vous avoir le temps de consacrer 8h par jour a cette formation ? </label>
+            <select name="Disponibilite" id="Disponibilite" required>
+              <option value="" disabled selected>--Veuillez Choisir--</option>
+              <option>Oui, j'en suis sur !! </option>
+              <option>Oui, En m'organisant un peu mieux</option>
+              <option>Oui, Si je prend conge</option>
+              <option>Non</option>
+            </select>
+          </fieldset>
+
+          <fieldset>
+            <label>Avez vous un ordinateur portatif  répondant au minimum d'exigences suivantes ? </label>
+                <p class="form-explain">Cette condition est cruciale. Car la formation se fera en ligne et vous devrez joindre de la salle de conférence zoom plusieurs fois par semaine. Sans un matériel répondant a ces exigences, vous ne pourrez pas suivre la formation dans les bonnes conditions.</p>
+                <ul class="form-explain">
+                  <li>1.6 GHz processeur</li>
+                  <li>4 Go RAM</li>
+                  <li>120 Go de disque dur</li>
+                  <li>Microphone avec un bon son.</li>
+                  <li>Webcame avec une image clair</li>
+                </ul>
+                <select name="Exigence" required>
+                  <option value="" disabled selected>--Veuillez Choisir--</option>
+                  <option>Oui</option>
+                  <option>Non</option>
+                </select>
+          </fieldset>
+
+          <fieldset>
+          <label for="Lang" >Pouvez vous parler et écrire Anglais ?</label>
+          <p class="form-explain">Vous pouvez tester ici votre niveau d'anglais. Ce n'est pas une condition obligatoire pour être sélectionné. Mais le fait d'avoir au moins un niveau B2 en anglais vous aidera dans le monde de la programmation.</p>
+            <p><a href="https://www.efset.org/cefr/b2/" rel='noopener' target="_blank">https://www.efset.org/cefr/b2/</a></p>
+            <select name="Lang" id="Lang" required>
+              <option value="" disabled selected>--Veuillez Choisir--</option>
+              <option>Oui, j'ai un niveau B2 ! </option>
+              <option>Oui, je l'ai appris a l'ecole</option>
+              <option>Oui, Si j'ai un certificat en Anglais</option>
+              <option>Oui, Si je parle courament l'anglais</option>
+              <option>Non, pas du tout.</option>
+            </select>
+          </fieldset>
+
+          <fieldset>
+          <label for="Lang">Avez Vous Un Acces Permanent à internet ?</label>
+          <p class="form-explain">Les exigences en matière d'accès à internet sont très importantes.</p>
+          <ul class="form-explain">
+            <li>vitesse de téléchargement au moins de 3 Mbps</li>
+            <li>Ping/Latency en dessous de 150 ms</li>
+            <li>Perte de paquet en dessous de 1%</li>
+          </ul>
+          <p class="form-explain">Pour mesurer la perte de paquet, ouvrez votre terminal et tapez la ligne de comande suivante : </p>
+          <ul class="form-explain">
+            <li>Si vous êtes sur  Mac/Linux : ping -c 100 8.8.8.8</li>
+            <li>Si vous étés sur  Windows : ping -n 100 8.8.8.8</li>
+          </ul>
+          <p class="form-explain">Utilisez ce lien pour confirmer la qualité de votre internet :
+            <a href="http://microverse.speedtestcustom.com/" rel='noopener' target="_blank">http://microverse.speedtestcustom.com/</a><br>
+              Faite une capture d'écran et attachez-la ici</p>
+              <label class ="form-explain">Select files:</label>
+              <input type="file" multiple><br><br>
+              </fieldset>
+
+              <fieldset>
+              <legend><span class="number">3</span>Conclusion</legend>
+              <label for="Lang">Autres informations ou préoccupation nécessaire que vous souhaitez partagez avec l'équipe de sélection :</label>
+              <textarea id="bio" name="user_bio"></textarea>
+              <button type="submit" class="submit">Soumettre</button>
+              </fieldset>
+    </form>
   </body>
 </html>
