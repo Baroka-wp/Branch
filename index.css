@@ -140,7 +140,7 @@ label.light {
 }
 
 #sex_f:checked + .register-switch-label {
-    font-weight: 500;
+  font-weight: 500;
   color: white;
   background: pink;
   border-radius: 2px;
@@ -158,9 +158,9 @@ label.light {
 }
 
 .form-explain {
-font-family: 'Times New Roman', serif;
-color: grey;
-font-size: 16px;
+  font-family: 'Times New Roman', serif;
+  color: grey;
+  font-size: 16px;
 }
 
 ul {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang ="fr">
 <head>
-      <html lang ="fr">
+
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Formulaire de pre-inscription</title>
@@ -22,7 +22,7 @@
         <input type="email" id="mail" name="user_email" required>
 
         <label for="Phone_Number">Numéro de téléphone:</label>
-        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required/>
+        <input type="text" id="Phone_Number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" pattern="[0-9]{3}-[0-9]{3}-[0-9]" required/>
 
         <label for="mail">Gender:</label>
             <div class="register-switch">
@@ -292,10 +292,9 @@
 </select>
 
       </fieldset>
-
         <legend><span class="number">2</span>Informations Technique</legend>
-
       <fieldset>
+
       <label for="Niveau_D'etude">Niveau D'etude:</label>
       <select name="Niveau D'etude" required>
         <option value="" disabled selected>--Veuillez Choisir--</option>
@@ -307,8 +306,8 @@
         <option value="Autre">Autre</option>
       </select>
       <label for="Occupation_Actuelle">Occupation Actuelle:</label>
-      <select name="Occupation Actuelle">
-        <option value="" disabled selected required>--Veuillez Choisir--</option>
+      <select name="Occupation Actuelle" required>
+        <option value="" disabled selected >--Veuillez Choisir--</option>
         <option value="Bac">Entrepreneur</option>
         <option value="L">Etudiant en debut de cycle</option>
         <option value="M">Etudiant en fin de cycle</option>
@@ -322,7 +321,7 @@
 
       </select>
       <label for="Exp_Prog">Avez Vous De L'experience en programation ?</label>
-      <select name="Experience En programation"required>
+      <select name="Experience En programation" required>
         <option value="" disabled selected>--Veuillez Choisir--</option>
         <option>Je l'ai etudie brievement a lecole </option>
         <option>J'en ai jamais entendu parler</option>
