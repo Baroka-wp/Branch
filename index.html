@@ -32,10 +32,10 @@
               <label for="sex_m" class="register-switch-label">Male</label>
             </div>
 
-        <label for="Age">Age:</label>
+        <label for="Age" id="Age">Age:</label>
         <input type="number" min="0"  required/>
 
-        <label for="pays">Votre Pays D'origine :</label><br>
+        <label for="pays" id="pays">Votre Pays D'origine :</label><br>
      <select name="nationality" required>
   <option value="" disabled selected>--Veuillez Choisir--</option>
   <option value="AF">L'Afghanistan</option>
@@ -292,10 +292,10 @@
 </select>
 
       </fieldset>
-        <legend><span class="number">2</span>Informations Technique</legend>
+        <p class="Info_Tech"><span class="number">2</span>Informations Technique</p>
       <fieldset>
 
-      <label for="Niveau_D'etude">Niveau D'etude:</label>
+      <label for="Niveau_D'etude" id="Niveau_D'etude">Niveau D'etude:</label>
       <select name="Niveau D'etude" required>
         <option value="" disabled selected>--Veuillez Choisir--</option>
         <option value="Bac">Bac</option>
@@ -305,7 +305,7 @@
         <option value="Dr">Doctorat</option>
         <option value="Autre">Autre</option>
       </select>
-      <label for="Occupation_Actuelle">Occupation Actuelle:</label>
+      <label for="Occupation_Actuelle" id="Occupation_Actuelle">Occupation Actuelle:</label>
       <select name="Occupation Actuelle" required>
         <option value="" disabled selected >--Veuillez Choisir--</option>
         <option value="Bac">Entrepreneur</option>
@@ -320,7 +320,7 @@
         <option value="Autre">Autre</option>
 
       </select>
-      <label for="Exp_Prog">Avez Vous De L'experience en programation ?</label>
+      <label for="Exp_Prog" id="Exp_Prog">Avez Vous De L'experience en programation ?</label>
       <select name="Experience En programation" required>
         <option value="" disabled selected>--Veuillez Choisir--</option>
         <option>Je l'ai etudie brievement a lecole </option>
@@ -332,16 +332,16 @@
       </select>
 
           <label>Des Objectifs D'apres Formation ?</label>
-          <input type="checkbox"><label class="light" for="Entreprise">Creer Votre Propre Entreprise</label><br>
-          <input type="checkbox"><label class="light" for="Etudes">Poursuivre les etudes</label><br>
-          <input type="checkbox"><label class="light" for="Travail">Chercher de l'emploi</label><br>
-          <input type="checkbox"><label class="light" for="Autre">Autre</label>
+          <input type="checkbox"><label class="light" for="Entreprise" id="Entreprise">Creer Votre Propre Entreprise</label><br>
+          <input type="checkbox"><label class="light" for="Etudes" id="Etudes">Poursuivre les etudes</label><br>
+          <input type="checkbox"><label class="light" for="Travail" id="Travail">Chercher de l'emploi</label><br>
+          <input type="checkbox"><label class="light" for="Autre" id="Autre">Autre</label>
           </fieldset>
 
           <fieldset>
-            <label for="Cours_preparatoire">Participer au cours preparatoire ?</label>
+            <label for="Cours_preparatoire" id="Cours_preparatoire">Participer au cours preparatoire ?</label>
                 <p class="form-explain">Notre programme est très intensif. Nous avons remarqué que les abandons venez surtout de ceux qui n'avaient aucune base en programmation. Vu que vous êtes un débutant, nous vous recommandons de prendre un temps pour suivre nos cours préparatoire qui vont vous initier à la programmation. Vous pourrez ainsi passer plus facilement le test d'admission au programme et réussir la formation. Ce cours préparatoire dure 1 mois.</p>
-                <select name="Cours preparatoire"required>
+                <select name="Cours preparatoire" required>
                   <option value="" disabled selected>--Veuillez Choisir--</option>
                   <option>Oui, je voudrais Bien !! </option>
                   <option>Non, j'ai deja une petite experience.</option>
@@ -349,7 +349,7 @@
           </fieldset>
 
           <fieldset>
-          <label for="Disponibilite">[Votre disponibilité] Sachant que la formation dure 4 mois plus 1 mois de stage, pensez-vous avoir le temps de consacrer 8h par jour a cette formation ? </label>
+          <label for="Disponibilite" id="Disponibilite">[Votre disponibilité] Sachant que la formation dure 4 mois plus 1 mois de stage, pensez-vous avoir le temps de consacrer 8h par jour a cette formation ? </label>
             <select name="Disponibilite" required>
               <option value="" disabled selected>--Veuillez Choisir--</option>
               <option>Oui, j'en suis sur !! </option>
@@ -360,7 +360,7 @@
           </fieldset>
 
           <fieldset>
-            <label for="Exigence">Avez vous un ordinateur portatif  répondant au minimum d'exigences suivantes ? </label>
+            <label for="Exigence" id="Exigence">Avez vous un ordinateur portatif  répondant au minimum d'exigences suivantes ? </label>
                 <p class="form-explain">Cette condition est cruciale. Car la formation se fera en ligne et vous devrez joindre de la salle de conférence zoom plusieurs fois par semaine. Sans un matériel répondant a ces exigences, vous ne pourrez pas suivre la formation dans les bonnes conditions.</p>
                 <ul class="form-explain">
                   <li>1.6 GHz processeur</li>
@@ -377,7 +377,7 @@
           </fieldset>
 
           <fieldset>
-          <label for="Lang">Pouvez vous parler et écrire Anglais ?</label>
+          <label for="Lang" id="Lang">Pouvez vous parler et écrire Anglais ?</label>
           <p class="form-explain">Vous pouvez tester ici votre niveau d'anglais. Ce n'est pas une condition obligatoire pour être sélectionné. Mais le fait d'avoir au moins un niveau B2 en anglais vous aidera dans le monde de la programmation.</p>
             <p><a href="https://www.efset.org/cefr/b2/" rel="noopener" target="_blank">https://www.efset.org/cefr/b2/</a></p>
             <select name="Lang" required>
@@ -391,7 +391,7 @@
           </fieldset>
 
           <fieldset>
-          <label for="Lang">Avez Vous Un Acces Permanent à internet ?</label>
+          <label for="Lang" id="Lang">Avez Vous Un Acces Permanent à internet ?</label>
           <p class="form-explain">Les exigences en matière d'accès à internet sont très importantes.</p>
           <ul class="form-explain">
             <li>vitesse de téléchargement au moins de 3 Mbps</li>
@@ -412,7 +412,7 @@
 
               <fieldset>
               <legend><span class="number">3</span>Conclusion</legend>
-              <label for="Lang">Autres informations ou préoccupation nécessaire que vous souhaitez partagez avec l'équipe de sélection :</label>
+              <label for="Lang" id="Lang">Autres informations ou préoccupation nécessaire que vous souhaitez partagez avec l'équipe de sélection :</label>
               <textarea id="bio" name="user_bio"></textarea>
               <button type="submit" class="submit">Soumettre</button>
               </fieldset>
