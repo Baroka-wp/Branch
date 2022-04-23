@@ -19,10 +19,10 @@
         <input type="text" id="name" name="user_name" required>
 
         <label for="mail">Email:</label>
-        <input type="email" id="mail" name="user_email" required>
+        <input type="email" id="mail" name="user_email" placeholder="email@gmail.com" required>
 
         <label for="Phone_Number">Numéro de téléphone:</label>
-        <input type="text" id="Phone_Number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" pattern="[0-9]{3}-[0-9]{3}-[0-9]" required/>
+        <input type="text" id="Phone_Number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="XX-XX-XX-XX-XX" required/>
 
         <label for="mail">Gender:</label>
             <div class="register-switch">
@@ -32,8 +32,8 @@
               <label for="sex_m" class="register-switch-label">Male</label>
             </div>
 
-        <label for="Age" >Age:</label>
-        <input type="number" min="0" id="Age"  required/>
+        <label for="Age"  >Age:</label>
+        <input type="number" min="0" id="Age" placeholder="0" required/>
 
         <label for="pays" >Votre Pays D'origine :</label><br>
      <select name="nationality" id="pays" required>
