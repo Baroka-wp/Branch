@@ -24,12 +24,12 @@
         <label for="phone">Numéro de téléphone:</label>
         <input type="text" id="phone" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="XX-XX-XX-XX-XX" required/>
 
-        <label for="gender">Gender:</label>
+        <label for="genre">Genre:</label>
             <div class="register-switch">
-              <input type="radio" name="sex_f" value="F" id="sex_f" class="register-switch-input" checked>
-              <label for="sex_f" class="register-switch-label">Female</label>
-              <input type="radio" name="sex_m" value="M" id="sex_m" class="register-switch-input">
-              <label for="sex_m" class="register-switch-label">Male</label>
+              <input type="radio" name="sexe" value="F" id="sex_f" class="register-switch-input" checked>
+              <label for="sex_f" class="register-switch-label">Féminin</label>
+              <input type="radio" name="sexe" value="M" id="sex_m" class="register-switch-input">
+              <label for="sex_m" class="register-switch-label">Masculin</label>
             </div>
 
         <label for="age"  >Age:</label>

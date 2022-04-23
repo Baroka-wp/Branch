@@ -23,8 +23,8 @@ let infosShema={
   bio: String
 }
 
-// Mongo db
-let Informations=MongoClient.model("Students",infosShema)
+// Mongo db, nom de tcollection: infos
+let Informations=MongoClient.model("infos",infosShema)
 
 const uri = "mongodb+srv://ange_cluster_user:ange_cluster_user@cluster0.apamw.mongodb.net/Students?retryWrites=true&w=majority";
 MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
