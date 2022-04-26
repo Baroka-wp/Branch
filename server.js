@@ -1,5 +1,4 @@
 var express = require('express');
-const jquery = require( 'jquery');
 var bodyParser=require("body-parser");
 // upload dependances
 const mfs=require('fs')
@@ -9,14 +8,13 @@ const mpath=require("path")
 var app = express();
 // Env
 require('dotenv').config();
-const {Schema}  = require("mongoose");
 const MongoClient = require('mongoose');
 
-let imageShema= {
+let imageShema = {
      name:String,
      img: {data:Buffer,contentType:String},
   }
-let infosShema={
+let infosShema = {
   name:String,
   phone: Number,
   email:String,
@@ -53,7 +51,6 @@ var upload = mmulter({ storage: storage });
 
 
 // help getting body
-let encodeUrl=bodyParser.urlencoded({extended:true})
 app.use(bodyParser.urlencoded({extended: false}));
 
 // indexing static files

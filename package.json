@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Baroka-wp/html-css-projet-template#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "eslint": "^8.14.0",
     "hint": "^6.1.10",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
