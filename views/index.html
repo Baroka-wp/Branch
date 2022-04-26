@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="/style/index.css">
   </head>
   <body>
-    <form action="/inscription" method="post">
+    <form action="/inscription" method="post" enctype="multipart/form-data">
 
       <h1>Formulaire de pré-inscription</h1>
 
@@ -408,7 +408,7 @@
             <a href="http://microverse.speedtestcustom.com/" rel='noopener' target="_blank">http://microverse.speedtestcustom.com/</a><br>
               Faite une capture d'écran et attachez-la ici</p>
               <label class ="form-explain">Select files:</label>
-              <input type="file" multiple><br><br>
+              <input type="file" name="image" id="image"><br><br>
               </fieldset>
 
               <fieldset>
@@ -419,6 +419,4 @@
               </fieldset>
     </form>
   </body>
-  <!-- <script data-main="scripts/app" src="/js/require.js"></script>
-  <script src="/js/inscription.js"></script> -->
 </html>

@@ -1,12 +1,21 @@
 var express = require('express');
 const jquery = require( 'jquery');
 var bodyParser=require("body-parser");
+// upload dependances
+const mfs=require('fs')
+var mmulter=require("multer")
+const mpath=require("path")
+
 var app = express();
 // Env
 require('dotenv').config();
 const {Schema}  = require("mongoose");
 const MongoClient = require('mongoose');
 
+let imageShema={
+     name:String,
+     img:{data:Buffer,contentType:String},
+  }
 let infosShema={
   name:String,
   phone: Number,
@@ -25,9 +34,22 @@ let infosShema={
 
 // Mongo db, nom de tcollection: infos
 let Informations=MongoClient.model("infos",infosShema)
+let Image=MongoClient.model('images',imageShema)
 
-const uri = "mongodb+srv://ange_cluster_user:ange_cluster_user@cluster0.apamw.mongodb.net/Students?retryWrites=true&w=majority";
+const uri =process.env.DATABASE_URL;
 MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+var storage = mmulter.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, 'uploads')
+  },
+  filename: (req, file, cb) => {
+      cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+
+var upload = mmulter({ storage: storage });
 
 
 // help getting body
@@ -53,16 +75,32 @@ app.get('/inscription', function (req, res) {
 
 
 // collect inscription data and save to mongodb database
-app.post('/inscription',encodeUrl, function (req, res) {
- // res.sendFile(__dirname+"/views/index.html");
-
+app.post('/inscription',upload.single("image"), function (req, res) {
+     var obj = {
+    name: req.body["email"],
+    img: {
+        data: mfs.readFileSync(mpath.join(__dirname + '/uploads/' + req.file.filename.split(".")[0])),
+        contentType:req.file.mimetype
+       }
+    }
+    
+   var photo=new Image(obj)
    var document=new Informations(req.body)
+   
    console.log(document)
-   document.save(function(err,data) {
-     if(err){
-       res.json({erreur: "Impossible de sauvegarder"});
-     }else{
-       res.json({ressit: "Informations envoyés avec success"});
+     document.save(function(err,data) {
+        if(err){
+          res.json({erreur: "Impossible de sauvegarder"});
+        }else{
+          photo.save( function(err, item){
+            if (err) {
+                console.log(err);
+            }
+        });
+
+        // res.sendFile(__dirname+"/views/index.html");
+       res.json({informations: document,commentaire: "Informations envoyés avec success"});
+
      }
    });
    
@@ -83,3 +121,7 @@ app.use(function (req, res) {
 app.listen(4000, function () {
   console.log("Application écoute sur le port 4000 !");
 });
+
+
+
+
