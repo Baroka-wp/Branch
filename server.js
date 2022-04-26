@@ -12,9 +12,9 @@ require('dotenv').config();
 const {Schema}  = require("mongoose");
 const MongoClient = require('mongoose');
 
-let imageShema={
+let imageShema= {
      name:String,
-     img:{data:Buffer,contentType:String},
+     img: {data:Buffer,contentType:String},
   }
 let infosShema={
   name:String,
