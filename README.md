@@ -7,10 +7,34 @@
 - Html
 - Css
 - Js
+- Express js
 - Linter
 Nous allons utliser linter pour avoir un code plus propre et uniforme
 [APPRENDRE A UTILISER LINTER ](https://github.com/irotori/linters/tree/master/html-css-js)
 - Figma (Template 5)
+
+## DataBase 
+- MongoDB
+[en savoir plus sur mongdb et firebase](https://peat-hydrangea-2ac.notion.site/Branch-d21a55a65b684f11ac3615865626a85f)
+
+## Get it localy
+- 1
+ ```
+ git clone https://github.com/Baroka-wp/Branch.git
+ ```
+ ```
+ git clone git@github.com:Baroka-wp/Branch.git
+
+ ```
+- 2
+ ```
+ npm install
+ ```
+- 3
+ ```
+ node server.js
+ ```
+
 
 ## Authors
 
