@@ -1,9 +1,9 @@
 var express = require('express');
 var bodyParser=require("body-parser");
 // upload dependances
-const mfs=require('fs')
-var mmulter=require("multer")
-const mpath=require("path")
+const fs=require('fs')
+var multer=require("multer")
+const path=require("path")
 
 var app = express();
 // Env
@@ -38,7 +38,7 @@ const uri =process.env.DATABASE_URL;
 MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-var storage = mmulter.diskStorage({
+var storage = multer.diskStorage({
   destination: (req, file, cb) => {
       cb(null, 'uploads')
   },
@@ -47,43 +47,42 @@ var storage = mmulter.diskStorage({
   }
 });
 
-var upload = mmulter({ storage: storage });
+var upload = multer({ storage: storage });
 
 
 // help getting body
 app.use(bodyParser.urlencoded({extended: false}));
 
 // indexing static files
-app.use("/style",express.static(__dirname+"/style"));
-app.use("/js",express.static(__dirname+"/js"));
+app.use("/src/style",express.static(__dirname+"/src/style"));
+app.use("/src/js",express.static(__dirname+"/src/js"));
 
 // '/' est la route racine
 app.get('/', function (req, res) {
-  res.sendFile(__dirname+"/views/welcome.html");
+  res.sendFile(__dirname+"/src/views/welcome.html");
 });
 
 
 
 // route inscription
 app.get('/inscription', function (req, res) {
-  console.log('salur')
-  res.sendFile(__dirname+"/views/index.html");
+  res.sendFile(__dirname+"/src/views/index.html");
 });
 
 
 // collect inscription data and save to mongodb database
-app.post('/inscription',upload.single("image"), function (req, res) {
+app.post('/src/inscription',upload.single("image"), function (req, res) {
      var obj = {
     name: req.body["email"],
     img: {
-        data: mfs.readFileSync(mpath.join(__dirname + '/uploads/' + req.file.filename.split(".")[0])),
+        data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename.split(".")[0])),
         contentType:req.file.mimetype
        }
     }
-    
+
    var photo=new Image(obj)
    var document=new Informations(req.body)
-   
+
    console.log(document)
      document.save(function(err,data) {
         if(err){
@@ -100,7 +99,7 @@ app.post('/inscription',upload.single("image"), function (req, res) {
 
      }
    });
-   
+
 
 });
 
@@ -118,7 +117,3 @@ app.use(function (req, res) {
 app.listen(4000, function () {
   console.log("Application écoute sur le port 4000 !");
 });
-
-
-
-
