@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/style/normalize.css">
-    <link rel="stylesheet" href="/src/style/welcome.css">
+    <head>
+        <%- include('./partials/header.html') %>
+     
+        <link rel="stylesheet" href="/src/style/welcome.css"> 
+    </head>
     <title>Dive into code registration</title>
 </head>
 <body>
@@ -19,6 +19,11 @@
                      <p>Acceder à notre formulaire d'inscription ici</p>
                  </div>
                 <a href="/inscription">Inscription</a>
+
+                <div class="text m-3">
+                    <p>Acceder à la Liste Des Candidats ici</p>
+                </div>
+               <a href="/dashboard/1">Liste Des Candidats</a>
              </div>
          </div>
     </div>

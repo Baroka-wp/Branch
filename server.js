@@ -16,6 +16,7 @@ let imageShema = {
   }
 let infosShema = {
   name:String,
+  age:Number,
   phone: Number,
   email:String,
   sexe: String,
@@ -59,19 +60,39 @@ app.use("/src/js",express.static(__dirname+"/src/js"));
 
 // '/' est la route racine
 app.get('/', function (req, res) {
-  res.sendFile(__dirname+"/src/views/welcome.html");
+  res.render(__dirname+"/src/views/welcome.ejs");
 });
 
+// route tableau de bord
+app.get("/dashboard/:page",function(req,res) {
+    var perPage = 20
+    var page = req.params.page || 1
+ 
+    Informations
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function(err, personFound) {
+          Informations.count().exec(function(err, count) {
+                if (err) return next(err)
+                res.render(__dirname+"/src/views/dashboard.ejs", {
+                    data:personFound,
+                    current: page,
+                    pages: Math.ceil(count / perPage)
+                })
+            })
+        });
 
+})
 
 // route inscription
 app.get('/inscription', function (req, res) {
-  res.sendFile(__dirname+"/src/views/index.html");
+  res.render(__dirname+"/src/views/index.ejs");
 });
 
 
 // collect inscription data and save to mongodb database
-app.post('/src/inscription',upload.single("image"), function (req, res) {
+app.post('/src/inscription',upload.single("image"),  function (req, res) {
      var obj = {
     name: req.body["email"],
     img: {
@@ -88,7 +109,7 @@ app.post('/src/inscription',upload.single("image"), function (req, res) {
         if(err){
           res.json({erreur: "Impossible de sauvegarder"});
         }else{
-          photo.save( function(err, item){
+           photo.save( function(err, item){
             if (err) {
                 console.log(err);
             }

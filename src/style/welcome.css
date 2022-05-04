@@ -25,4 +25,6 @@ a {
 }
 a:hover {
     background-color: rgb(3, 3, 23);
+    text-decoration: none;
+    color: white;
 }
