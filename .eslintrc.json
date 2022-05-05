@@ -8,7 +8,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/essential"
+        "plugin:vue/essential",
+        "stylelint-csstree-validator"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -18,5 +19,10 @@
         "vue"
     ],
     "rules": {
+      "csstree/validator": {
+      "properties": {
+        "width": "| auto"
+      }
+    }
     }
 }
