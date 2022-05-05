@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser=require("body-parser");
+var countries=require("countries-list");
 // upload dependances
 const fs=require('fs')
 var multer=require("multer")
@@ -87,7 +88,10 @@ app.get("/dashboard/:page",function(req,res) {
 
 // route inscription
 app.get('/inscription', function (req, res) {
-  res.render(__dirname+"/src/views/index.ejs");
+  const countryCodes = Object.keys(countries.countries);
+  const countryNames = countryCodes.map(code => countries.countries[code].name);
+  console.log(countryNames);
+  res.render(__dirname+"/src/views/index.ejs",{data: countryNames});
 });
 
 
