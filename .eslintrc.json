@@ -19,10 +19,5 @@
         "vue"
     ],
     "rules": {
-      "csstree/validator": {
-      "properties": {
-        "width": "| auto"
-      }
-    }
     }
 }
