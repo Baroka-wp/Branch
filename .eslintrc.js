@@ -12,6 +12,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
-      'indent': 'off'
+      "indent": [2, "tab"],
+    "no-tabs": 0,
     }
 }
