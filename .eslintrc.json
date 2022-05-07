@@ -1,11 +1,15 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "amd": true,
+        "node": true,
+        "es6": true
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/essential"
+        "plugin:vue/essential",
+        "stylelint-csstree-validator"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -15,5 +19,6 @@
         "vue"
     ],
     "rules": {
+      "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
     }
 }

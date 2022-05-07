@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header.html') %> 
+    <title>Tableau de board</title>
+</head>
+<body>
+
+    <div class="container mt-3">
+      <h2>Liste de tout les candidats inscrits</h2>
+      <p>Rechercher par nom et email</p>  
+      <input class="form-control" id="myInput" type="text" placeholder="Rechercher..">
+      <br>
+      <table class="table table-bordered table-striped table-bordered" id="myTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nom et prénoms</th>
+            <th>E-mail</th>
+            <th>Age</th>
+            <th>Sexe</th>
+            <th>Nationalité</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <% if(data.length){
+
+          for(var i = 0; i< data.length; i++) {%>  
+          <tr>
+            <td><%= (i+1) %></th>
+            <td><%= data[i].name%></td>
+            <td><%= data[i].email%></td>
+            <td>12</td>
+            <td><%= data[i].sexe%></td>
+            <td><%= data[i].nationality%></td>
+          </tr>
+          <% }
+                  
+           }else{ %>
+               <tr>
+                  <td colspan="3">No user</td>
+               </tr>
+            <% } %>   
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>#</th>
+            <th>Nom et prénoms</th>
+            <th>E-mail</th>
+            <th>Age </th>
+            <th>Sexe </th>
+            <th>Nationalité</th>
+          </tr>
+        </tfoot>
+      </table>
+      <% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (current == 1) { %>
+                        <li class="disabled"><a class="btn">«</a></li>
+                    <% } else { %>
+                        <li><a href="/dashboard/1" class="btn btn-primary">«</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>  
+                        <li class="disabled"><a  class="btn">...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active"><a  class="btn"><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/dashboard/<%= i %>" class="btn"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a  class="btn">...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled"><a class="btn">»</a></li>
+                    <% } else { %>
+                        <li><a href="/dashboard/<%= pages %>" class="btn btn-primary">»</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+
+      
+    </div>
+
+</body>
+
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<style>
+  a{
+    margin: 3px;
+  }
+  </style>
+
+</html>
