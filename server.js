@@ -68,14 +68,14 @@ app.get('/', function (req, res) {
 app.get("/dashboard/:page",function(req,res) {
     var perPage = 20
     var page = req.params.page || 1
- 
+
     Informations
         .find({})
         .skip((perPage * page) - perPage)
         .limit(perPage)
         .exec(function(err, personFound) {
           Informations.count().exec(function(err, count) {
-                if (err) return next(err)
+                if (err) return err
                 res.render(__dirname+"/src/views/dashboard.ejs", {
                     data:personFound,
                     current: page,
@@ -108,12 +108,11 @@ app.post('/src/inscription',upload.single("image"),  function (req, res) {
    var photo=new Image(obj)
    var document=new Informations(req.body)
 
-   console.log(document)
-     document.save(function(err,data) {
+     document.save(function(err) {
         if(err){
           res.json({erreur: "Impossible de sauvegarder"});
         }else{
-           photo.save( function(err, item){
+           photo.save( function(err){
             if (err) {
                 console.log(err);
             }
