@@ -141,7 +141,7 @@ app.get('/inscription', function (req, res) {
 
 
 // collect inscription data and save to mongodb database
-app.post('/src/inscription',upload.single("image"),  function (req, res) {
+app.post('/inscription',upload.single("image"),  function (req, res) {
      var obj = {
     name: req.body["email"],
     img: {
