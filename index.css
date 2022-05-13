@@ -16,10 +16,10 @@
 }
 
 .header__left {
-  display: flex;
-  align-items: center;
-	margin: 30px;
-	font-size: 20px;
+   display: flex;
+   align-items: center;
+	 margin: 30px;
+	 font-size: 20px;
 }
 
 .header__right {
@@ -32,14 +32,13 @@
   cursor: pointer;
 }
 
-.new{
-	width: 100%;
-	border-radius: 25px;
-	background-color: blue;
-	color: white;
-  margin-left: 600px;
+.new {
+   width: 100%;
+	 border-radius: 25px;
+	 background-color: blue;
+	 color: white;
+   margin-left: 600px;
 }
-
 
 /* Sidebar */
 .sidebar {
@@ -58,7 +57,7 @@
   align-items: center;
   cursor: pointer;
   border: none;
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar__compose span {
@@ -86,17 +85,21 @@
   font-weight: 400;
 }
 
-.sidebarOption:hover,
-.sidebarOption:hover h3,
-.sidebarOption:hover .material-icons,
+.sidebar__footerIcons .material-icons {
+  cursor: pointer;
+}
+
 .sidebarOption__active,
 .sidebarOption__active h3,
-.sidebarOption__active .material-icons {
+.sidebarOption__active .material-icons,
+.sidebarOption:hover,
+.sidebarOption:hover h3,
+.sidebarOption:hover .material-icons{
   color: blue;
   font-weight: 800;
 }
 
-.Project{
+.Project {
   border-right: 3px solid blue;
 }
 
@@ -105,10 +108,7 @@
   justify-content: left;
 }
 
-.sidebar__footerIcons .material-icons {
-  cursor: pointer;
-}
-.image{
+.image {
   background-image: url('Cv.jpeg');
   background-size: cover;
   border-radius: 30px;
@@ -140,11 +140,9 @@ body {
   padding: 8px;
 }
 
-
-.space{
+.space {
   margin-right: 30px;
 }
-
 
 .AppList__settingsLeft {
   display: flex;
@@ -160,7 +158,7 @@ body {
   display: flex;
   align-items: center;
   border-bottom-width: 2px;
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0 15px 0;
   cursor: pointer;
   color: grey;
   margin-right: 80px;
@@ -216,8 +214,8 @@ input {
   font-size: 13px;
 }
 
-.miami{
-  width:110px;
+.miami {
+  width: 110px;
 }
 
 .AppRow__description {
