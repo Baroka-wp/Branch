@@ -18,8 +18,8 @@
 .header__left {
   display: flex;
   align-items: center;
-    margin: 30px;
-	  font-size: 20px;
+  margin: 30px;
+	font-size: 20px;
 }
 
 .header__right {
@@ -34,9 +34,9 @@
 
 .new {
   width: 100%;
-    border-radius: 25px;
-	  background-color: blue;
-	  color: white;
+  border-radius: 25px;
+	background-color: blue;
+	color: white;
   margin-left: 600px;
 }
 
