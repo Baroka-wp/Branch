@@ -57,11 +57,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // indexing static files
 app.use("/src/style",express.static(__dirname+"/src/style"));
+app.use("/src/image",express.static(__dirname+"/src/image"));
 app.use("/src/js",express.static(__dirname+"/src/js"));
 
 // '/' est la route racine
 app.get('/', function (req, res) {
-  res.render(__dirname+"/src/views/welcome.ejs");
+  res.render(__dirname+"/src/views/hello.ejs");
 });
 
 // route tableau de bord

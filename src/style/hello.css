@@ -133,7 +133,7 @@ h3 {
 }
 
 .image {
-  background-image: url('Cv.jpeg');
+  background-image: url('/src/image/Cv.jpeg');
   background-size: cover;
   border-radius: 30px;
   width: 50px;
@@ -155,6 +155,7 @@ body {
 .AppList {
   flex: 1;
   overflow: scroll;
+  margin-bottom: 30px;
 }
 
 .AppList__settings {
