@@ -35,15 +35,15 @@ function getMailOptions(recipients,message,subject) {
 
 
 // sendMail function 
-function sendMails() {
-  var mailOptions=getMailOptions("angenoutchogbe@gmail.com", //ecrivez votre mail ici pour recevoir le mail
+function sendMails(to) {
+  var mailOptions=getMailOptions(to, //ecrivez votre mail ici pour recevoir le mail
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
   "BRANCH");
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      console.log(error);
+      return error;
     } else {
-      console.log('Email sent: ' + info.response);
+      return 'Email sent: ';
     }
   });
 }
@@ -96,6 +96,9 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 
+
+
+
 // help getting body
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -104,12 +107,13 @@ app.use("/src/style",express.static(__dirname+"/src/style"));
 app.use("/src/js",express.static(__dirname+"/src/js"));
 
 // '/' est la route racine
-app.get('/', function (req, res) {
 
+app.get('/', function (req, res) {
   res.render(__dirname+"/src/views/welcome.ejs");
 });
 
 // route tableau de bord
+
 app.get("/dashboard/:page",function(req,res) {
     var perPage = 20
     var page = req.params.page || 1
@@ -131,18 +135,17 @@ app.get("/dashboard/:page",function(req,res) {
 
 })
 
+const countryCodes = Object.keys(countries.countries);
+  const countryNames = countryCodes.map(code => countries.countries[code].name);
 // route inscription
 app.get('/inscription', function (req, res) {
-  const countryCodes = Object.keys(countries.countries);
-  const countryNames = countryCodes.map(code => countries.countries[code].name);
-  console.log(countryNames);
-  res.render(__dirname+"/src/views/index.ejs",{data: countryNames});
+  res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{success:"",error:"",warning:""}});
 });
 
 
 // collect inscription data and save to mongodb database
 app.post('/inscription',upload.single("image"),  function (req, res) {
-     var obj = {
+    var obj = {
     name: req.body["email"],
     img: {
         data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename.split(".")[0])),
@@ -155,7 +158,8 @@ app.post('/inscription',upload.single("image"),  function (req, res) {
 
      document.save(function(err) {
         if(err){
-          res.json({erreur: "Impossible de sauvegarder"});
+          res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{error: "Impossible de sauvegarder",success:"",warning:""}});
+         
         }else{
            photo.save( function(err){
             if (err) {
@@ -164,11 +168,11 @@ app.post('/inscription',upload.single("image"),  function (req, res) {
         });
 
         // res.sendFile(__dirname+"/views/index.html");
-       res.json({informations: document,commentaire: "Informations envoyés avec success"});
+        sendMails(req.body["email"]);
+        res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{success:"Inscription réussite. Nous vous avons envoyé un mail.",error:"",warning:""}});
 
      }
    });
-
 
 });
 
