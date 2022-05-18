@@ -105,32 +105,26 @@
         <div class="AppList__sections">
           <div class="section section__selected">
             <input type="checkbox" name="" id="" />
-            <h4>Name and Surname</h4><span class="material-icons">arrow_upward</span>
+            <h4>Adress E-mail</h4><span class="material-icons"></span>
           </div>
 
           <div class="section">
-            <h4>Status</h4>
+            <h4>Nom Et Prenoms</h4><span class="material-icons"></span>
           </div>
 
           <div class="section">
-            <h4>Brand</h4>
+            <h4>Age</h4>
           </div>
           <div class="section">
-            <h4>Teammates</h4>
+            <h4>Sexe</h4>
           </div>
           <div class="section">
-            <h4>Project type</h4>
-          </div>
-          <div class="section">
-            <h4>Due date</h4>
-          </div>
-          <div class="section">
-            <h4>Actions</h4>
+            <h4>Nationalite</h4>
           </div>
         </div>
-        <!-- Section Ends -->
+        <% if(data.length){
 
-        <!-- App List rows starts -->
+        for(var i = 0; i< data.length; i++) {%>
         <div class="AppList__list">
           <!-- App Row Starts -->
           <div class="AppRow">
@@ -140,286 +134,48 @@
 
 
             <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
+              <span><%= data[i].email%></span>
             </div>
 
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
+            <span class="AppRow__description"> <%= data[i].name%> </span>
+            <span class="AppRow__description"> <%= data[i].age%></span>
+            <span class="AppRow__description"><%= data[i].sexe%></span>
+            <span class="AppRow__description"><%= data[i].nationality%></span>
+
           </div>
-          <!-- App Row Ends -->
+          <% }
 
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <!-- App Row Ends -->
-
-          <!-- App Row Starts -->
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-          <div class="AppRow">
-            <div class="AppRow__options">
-              <input type="checkbox" name="" id="" />
-            </div>
-
-
-            <div class="AppRow__student">
-              <span class="material-icons">portrait</span><span class="miami">Miami development</span>
-            </div>
-
-            <span class="AppRow__description"> canceled </span><span class="material-icons">cancel</span>
-            <span class="AppRow__description"> Amazon</span><i class="fa fa-amazon"></i>
-            <span class="AppRow__description"><span class="material-icons">supervisor_account</span></span>
-            <span class="AppRow__description"> New build </span>
-            <span class="AppRow__description"> Thu 12 dec </span>
-            <span class="AppRow__description"></span><span class="material-icons">more_horiz</span>
-          </div>
-         </div>
-        </div>
+           }else{ %>
+                <h6 colspan="3">No user</h6>
+          <% } %>
       </div>
+      <% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (current == 1) { %>
+                        <li class="disabled"><a class="btn">«</a></li>
+                    <% } else { %>
+                        <li><a href="/dashboard/1" class="btn btn-primary">«</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a  class="btn">...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active"><a  class="btn"><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/dashboard/<%= i %>" class="btn"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a  class="btn">...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled"><a class="btn">»</a></li>
+                    <% } else { %>
+                        <li><a href="/dashboard/<%= pages %>" class="btn btn-primary">»</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
   </body>
 </html>
