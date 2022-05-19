@@ -5,8 +5,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="src/style/hello.css" />
-    <%- include('./partials/header.html') %> 
-    
+    <%- include('./partials/header.html') %>
+
     <!-- <link rel="stylesheet" href="normalize.css" /> -->
     <title>Applicants list</title>
   </head>
@@ -15,7 +15,7 @@
     <!-- Header Starts -->
     <div class="header">
       <div class="header__left">
-        <h1>Branch</h1>
+        <h1 class="header__left">Branch</h1>
       </div>
 
 
@@ -109,20 +109,20 @@
             <table class="table " id="myTable">
               <thead class="section">
                 <tr>
-                  <th>#</th>
-                  <th>Nom et prénoms</th>
-                  <th>E-mail</th>
-                  <th>Age</th>
-                  <th>Sexe</th>
-                  <th>Nationalité</th>
+                  <th><span class="material-icons">description</span></th>
+                  <th><span class="material-icons">folder_shared</span></th>
+                  <th><span class="material-icons">email</span></th>
+                  <th><i class="fa fa-child" aria-hidden="true"></i></span></th>
+                  <th><span class="material-icons">group</span></th>
+                  <th><span class="material-icons">flag</span></th>
                 </tr>
               </thead>
               <tbody class="tbody section">
                 <% if(data.length){
-      
-                for(var i = 0; i< data.length; i++) {%>  
-                <tr>
-                  <td><%= (i+1) %></th>
+
+                for(var i = 0; i< data.length; i++) {%>
+                <tr class="AppRow">
+                  <td><%= (i+1) %></td>
                   <td><%= data[i].name%></td>
                   <td><%= data[i].email%></td>
                   <td>12</td>
@@ -130,16 +130,16 @@
                   <td><%= data[i].nationality%></td>
                 </tr>
                 <% }
-                        
+
                  }else{ %>
                      <tr>
                         <td colspan="3">No user</td>
                      </tr>
-                  <% } %>   
+                  <% } %>
               </tbody>
               <tfoot>
                 <tr>
-                  <th>#</th>
+                  <th><span class="material-icons">description</span></th>
                   <th>Nom et prénoms</th>
                   <th>E-mail</th>
                   <th>Age </th>
@@ -156,7 +156,7 @@
                               <li><a href="/dashboard/1" class="btn btn-primary">«</a></li>
                           <% } %>
                           <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-                          <% if (i !== 1) { %>  
+                          <% if (i !== 1) { %>
                               <li class="disabled"><a  class="btn">...</a></li>
                           <% } %>
                           <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
@@ -176,16 +176,16 @@
                           <% } %>
                       </ul>
                   <% } %>
-      
-            
+
+
           </div>
-        
+
 
         </div>
-      
-          
+
+
       </div>
-      
+
   </body>
 
   <script>
