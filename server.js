@@ -61,10 +61,35 @@ app.use("/src/image",express.static(__dirname+"/src/image"));
 app.use("/src/js",express.static(__dirname+"/src/js"));
 
 // '/' est la route racine
-// app.get('/', function (req, res) {
-//   res.render(__dirname+"/src/views/hello.ejs");
-// });
+app.get('/welcome', function (req, res) {
+  res.render(__dirname+"/src/views/welcome.ejs");
+});
+app.get("/dashboard/:page",function(req,res) {
+    var perPage = 20
+    var page = req.params.page || 1
 
+    Informations
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function(err, personFound) {
+          Informations.count().exec(function(err, count) {
+                if (err) return err
+                res.render(__dirname+"/src/views/dashboard.ejs", {
+                    data:personFound,
+                    current: page,
+                    pages: Math.ceil(count / perPage)
+                })
+            })
+        });
+
+})
+const countryCodes = Object.keys(countries.countries);
+  const countryNames = countryCodes.map(code => countries.countries[code].name);
+// route inscription
+app.get('/inscription', function (req, res) {
+  res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{success:"",error:"",warning:""}});
+});
 // route tableau de bord
 app.get("/:page?",function(req,res) {
     var perPage = 20
