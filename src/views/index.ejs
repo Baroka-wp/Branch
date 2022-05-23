@@ -2,6 +2,7 @@
 <html lang ="fr">
 <head>
   <head>
+
     <link rel="stylesheet" href="/src/style/normalize.css">
     <link rel="stylesheet" href="/src/style/index.css">
 </head>
@@ -36,6 +37,7 @@
         <label for="pays" >Votre Pays D'origine :</label><br>
      <select name="nationality" id="pays" required>
       <option value="" disabled selected>--Veuillez Choisir--</option>
+
       <% for( let i = 0; i < data.length; i++ ) { %>
         <option value="<%= data[i] %>"><%= data[i] %></option>
       <% } %>
@@ -170,4 +172,29 @@
               </fieldset>
     </form>
   </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+  <script>
+
+      if ("<%=message['success']%>"!="") {
+          Swal.fire({
+            icon: 'success',
+            text:"<%= message['success'] %>"
+        })
+      }
+     else if("<%=message['error']%>"!=""){
+        Swal.fire({
+          icon: 'error',
+          text:"<%= message['error'] %>"
+       }) 
+     }
+     else if("<%=message['warning']%>"!=""){
+      Swal.fire({
+          icon: 'warning',
+          text:"<%= message['warning'] %>"
+       })
+     }
+  
+   
+ </script>
 </html>
