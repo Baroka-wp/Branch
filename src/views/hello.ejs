@@ -1,0 +1,201 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="src/style/hello.css" />
+    <%- include('./partials/header.html') %>
+
+    <!-- <link rel="stylesheet" href="normalize.css" /> -->
+    <title>Applicants list</title>
+  </head>
+  <body>
+
+    <!-- Header Starts -->
+    <div class="header">
+      <div class="header__left">
+        <h1 class="header__left">Branch</h1>
+      </div>
+
+
+        <h1>Applicants list<span class="material-icons"> arrow_drop_down </span></h1>
+
+      <div class="header__right">
+        <a href="/inscription"><span class="new"> New project + </span></a>
+        <span class="material-icons"> notifications_none</span>
+        <span class="material-icons"> search </span>
+      </div>
+    </div>
+    <!-- Header Ends -->
+
+    <!-- Main Body Starts -->
+    <div class="main__body">
+      <!-- Sidebar Starts -->
+      <div class="sidebar">
+        <div class="sidebarOption">
+          <span class="material-icons"> dashboard </span>
+          <h3>Dashboard</h3>
+        </div>
+
+        <div class="sidebarOption">
+          <span class="material-icons"> domain </span>
+          <h3>Available units</h3>
+        </div>
+
+        <div class="sidebarOption">
+          <span class="material-icons"> security </span>
+          <h3>Invoices</h3>
+        </div>
+
+        <div class="sidebarOption sidebarOption__active">
+          <span class="material-icons"> access_time </span>
+          <h3 class="project">Project</h3>
+        </div>
+
+        <div class="sidebarOption">
+          <span class="material-icons"> share </span>
+          <h3>Social media</h3>
+        </div>
+
+        <div class="sidebarOption">
+          <span class="material-icons"> note </span>
+          <h3>Drafts</h3>
+        </div>
+
+        <div class="sidebarOption">
+          <span class="material-icons"> bookmark_border </span>
+          <h3>Documentation</h3>
+        </div>
+        <br>
+        <div class="sidebar__footer">
+          <div class="sidebar__footerIcons">
+            <div class="sidebarOption">
+              <span class="material-icons"> settings </span>
+              <h3>Settings</h3>
+            </div>
+            <div class="sidebarOption">
+              <span class="material-icons"> help_outline </span>
+              <h3>Help Center</h3>
+            </div>
+            <div class="sidebarOption">
+              <p class="image"><p>CHOUMAN</p><br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar Ends -->
+
+      <!-- App List Starts -->
+      <div class="AppList">
+        <!-- Settings Starts -->
+        <div class="AppList__settings">
+          <div class="AppList__settingsLeft">
+             <button class="sidebar__compose">Filter Project<span class="material-icons"> filter_list </span></button><span class="space"></span>
+            <button class="sidebar__compose">Sort Project<span class="material-icons"> sort </span></button><span class="space"></span>
+            <button class="sidebar__compose"><input type="text" placeholder="African Samurai" class="myInput" id="myInput"/><span class="material-icons">search</span><span class="space"></span>
+          </div>
+          <div class="AppList__settingsLeft">
+            <button class="sidebar__compose">Refresh<span class="material-icons"> rotate_right </span></button><span class="space"></span>
+            <button class="sidebar__compose">Customize<span class="material-icons"> settings </span></button><span class="space"></span>
+            <button class="sidebar__compose"><span class="material-icons"> more_vert </span></button>
+          </div>
+        </div>
+        <!-- Settings Ends -->
+        <!-- Section Starts -->
+        <div class="AppList__sections">
+
+          <div class="container mt-3">
+            <table class="table " id="myTable">
+              <thead class="section">
+                <tr>
+                  <th><span class="material-icons">description</span></th>
+                  <th><span class="material-icons">folder_shared</span></th>
+                  <th><span class="material-icons">email</span></th>
+                  <th><i class="fa fa-child" aria-hidden="true"></i></span></th>
+                  <th><span class="material-icons">group</span></th>
+                  <th><span class="material-icons">flag</span></th>
+                </tr>
+              </thead>
+              <tbody class="tbody section">
+                <% if(data.length){
+
+                for(var i = 0; i< data.length; i++) {%>
+                <tr class="AppRow">
+                  <td><%= (i+1) %></td>
+                  <td><%= data[i].name%></td>
+                  <td><%= data[i].email%></td>
+                  <td>12</td>
+                  <td><%= data[i].sexe%></td>
+                  <td><%= data[i].nationality%></td>
+                </tr>
+                <% }
+
+                 }else{ %>
+                     <tr>
+                        <td colspan="3">No user</td>
+                     </tr>
+                  <% } %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th><span class="material-icons">description</span></th>
+                  <th>Nom et prénoms</th>
+                  <th>E-mail</th>
+                  <th>Age </th>
+                  <th>Sexe </th>
+                  <th>Nationalité</th>
+                </tr>
+              </tfoot>
+            </table>
+            <% if (pages > 0) { %>
+                      <ul class="pagination text-center">
+                          <% if (current == 1) { %>
+                              <li class="disabled"><a class="btn">«</a></li>
+                          <% } else { %>
+                              <li><a href="/dashboard/1" class="btn btn-primary">«</a></li>
+                          <% } %>
+                          <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                          <% if (i !== 1) { %>
+                              <li class="disabled"><a  class="btn">...</a></li>
+                          <% } %>
+                          <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                              <% if (i == current) { %>
+                                  <li class="active"><a  class="btn"><%= i %></a></li>
+                              <% } else { %>
+                                  <li><a href="/dashboard/<%= i %>" class="btn"><%= i %></a></li>
+                              <% } %>
+                              <% if (i == Number(current) + 4 && i < pages) { %>
+                                  <li class="disabled"><a  class="btn">...</a></li>
+                              <% } %>
+                          <% } %>
+                          <% if (current == pages) { %>
+                              <li class="disabled"><a class="btn">»</a></li>
+                          <% } else { %>
+                              <li><a href="/dashboard/<%= pages %>" class="btn btn-primary">»</a></li>
+                          <% } %>
+                      </ul>
+                  <% } %>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+  </body>
+
+  <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+</html>
