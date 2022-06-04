@@ -33,10 +33,10 @@
     <div class="main__body">
       <!-- Sidebar Starts -->
       <div class="sidebar">
-        <div class="sidebarOption">
-          <span class="material-icons"> dashboard </span>
-          <h3>Dashboard</h3>
-        </div>
+      <a href="/dashboard/1"><div class="sidebarOption">
+        <span class="material-icons"> dashboard </span>
+        <h3>Dashboard</h3>
+        </div></a>
 
         <div class="sidebarOption">
           <span class="material-icons"> domain </span>
@@ -125,7 +125,7 @@
                   <td><%= (i+1) %></td>
                   <td><%= data[i].name%></td>
                   <td><%= data[i].email%></td>
-                  <td>12</td>
+                  <td><%= data[i].age%></td>
                   <td><%= data[i].sexe%></td>
                   <td><%= data[i].nationality%></td>
                 </tr>
@@ -142,8 +142,8 @@
                   <th><span class="material-icons">description</span></th>
                   <th>Nom et prénoms</th>
                   <th>E-mail</th>
-                  <th>Age </th>
-                  <th>Sexe </th>
+                  <th>Age</th>
+                  <th>Sexe</th>
                   <th>Nationalité</th>
                 </tr>
               </tfoot>

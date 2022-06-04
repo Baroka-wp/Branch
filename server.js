@@ -5,6 +5,46 @@ var countries=require("countries-list");
 const fs=require('fs')
 var multer=require("multer")
 const path=require("path")
+// email pulgin
+var nodemailer = require('nodemailer');
+
+//mail functions
+var transporter = nodemailer.createTransport({
+  service: process.env.SERVICE_MAIL, // à definir dans .env
+  auth: {
+    user: process.env.EMAIL_ADDRESS,// à definir dans .env
+    pass: process.env.EMAIL_PASSWORD// à definir dans .env
+  }
+});
+
+// for only one person
+function getMailOptions(recipients,message,subject) {
+  var isHtml=message[0]=="<"
+  var options={
+    from:  process.env.EMAIL_ADDRESS,
+    to: recipients,
+    subject: subject,
+    text: message,
+    }
+  isHtml? options['html']=message:options['text']=message
+}
+
+
+// sendMail function
+function sendMails(to) {
+  var mailOptions=getMailOptions(to, //ecrivez votre mail ici pour recevoir le mail
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "BRANCH");
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      return error;
+    } else {
+      return 'Email sent: ';
+    }
+  });
+}
+
+
 
 var app = express();
 // Env
@@ -19,22 +59,27 @@ let infosShema = {
   name:String,
   age:Number,
   phone: Number,
-  email:String,
+  email: {
+      type: String,
+      required: true,
+      match: /.+\@.+\..+/,
+      unique: true
+    },
   sexe: String,
   nationality:String,
   niveauEtude: String,
   occupationActuelle: String,
   experienceProgramation: String,
+  objectif: String,
   coursPrepa: String,
   disponibilite: String,
   exigence: String,
   niveauAnglais: String,
   bio: String
 }
-
 // Mongo db, nom de tcollection: infos
-let Informations=MongoClient.model("infos",infosShema)
-let Image=MongoClient.model('images',imageShema)
+let Informations=MongoClient.model("infos2",infosShema)
+let Image=MongoClient.model('images2',imageShema)
 
 const uri =process.env.DATABASE_URL;
 MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -88,7 +133,7 @@ const countryCodes = Object.keys(countries.countries);
   const countryNames = countryCodes.map(code => countries.countries[code].name);
 // route inscription
 app.get('/inscription', function (req, res) {
-  res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{success:"",error:"",warning:""}});
+  res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{success:"",error:"",warning:"",}, data2:{name:"",email:"", phone:"", sexe:"", nationality:""}});
 });
 // route tableau de bord
 app.get("/:page?",function(req,res) {
@@ -112,18 +157,17 @@ app.get("/:page?",function(req,res) {
 
 })
 
-// route inscription
-app.get('/inscription', function (req, res) {
-  const countryCodes = Object.keys(countries.countries);
-  const countryNames = countryCodes.map(code => countries.countries[code].name);
-  console.log(countryNames);
-  res.render(__dirname+"/src/views/index.ejs",{data: countryNames});
-});
+// // route inscription
+// app.get('/inscription', function (req, res) {
+//   const countryCodes = Object.keys(countries.countries);
+//   const countryNames = countryCodes.map(code => countries.countries[code].name);
+//   console.log(countryNames);
+//   res.render(__dirname+"/src/views/index.ejs",{data: countryNames});
+// });
 
 
-// collect inscription data and save to mongodb database
-app.post('/src/inscription',upload.single("image"),  function (req, res) {
-     var obj = {
+app.post('/inscription',upload.single("image"),  function (req, res) {
+    var obj = {
     name: req.body["email"],
     img: {
         data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename.split(".")[0])),
@@ -133,10 +177,17 @@ app.post('/src/inscription',upload.single("image"),  function (req, res) {
 
    var photo=new Image(obj)
    var document=new Informations(req.body)
-
+   var errormsg="";
      document.save(function(err) {
         if(err){
-          res.json({erreur: "Impossible de sauvegarder"});
+          // console.log(err.keyValue)
+          if(err.keyValue.hasOwnProperty("email")){
+              errormsg="Email Existant";
+          }
+          else{
+            errormsg="Impossible de sauvegarder"
+          }
+          res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{error: errormsg,success:"",warning:"",}, data2: req.body});
         }else{
            photo.save( function(err){
             if (err) {
@@ -145,11 +196,11 @@ app.post('/src/inscription',upload.single("image"),  function (req, res) {
         });
 
         // res.sendFile(__dirname+"/views/index.html");
-       res.json({informations: document,commentaire: "Informations envoyés avec success"});
+        sendMails(req.body["email"]);
+        res.render(__dirname+"/src/views/index.ejs",{data: countryNames,message:{success:"Inscription réussite. Nous vous avons envoyé un mail.",error:"",warning:"",}, data2:{name:"",email:"", phone:"", sexe:"", age:"", nationality:""} });
 
      }
    });
-
 
 });
 

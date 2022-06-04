@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/header.html') %> 
+    <%- include('./partials/header.html') %>
     <title>Tableau de board</title>
 </head>
 <body>
 
     <div class="container mt-3">
       <h2>Liste de tout les candidats inscrits</h2>
-      <p>Rechercher par nom et email</p>  
+      <p>Rechercher par nom et email</p>
       <input class="form-control" id="myInput" type="text" placeholder="Rechercher..">
       <br>
       <table class="table table-bordered table-striped table-bordered" id="myTable">
@@ -25,22 +25,22 @@
         <tbody class="tbody">
           <% if(data.length){
 
-          for(var i = 0; i< data.length; i++) {%>  
+          for(var i = 0; i< data.length; i++) {%>
           <tr>
             <td><%= (i+1) %></th>
             <td><%= data[i].name%></td>
             <td><%= data[i].email%></td>
-            <td>12</td>
+            <td><%= data[i].age%></td>
             <td><%= data[i].sexe%></td>
             <td><%= data[i].nationality%></td>
           </tr>
           <% }
-                  
+
            }else{ %>
                <tr>
                   <td colspan="3">No user</td>
                </tr>
-            <% } %>   
+            <% } %>
         </tbody>
         <tfoot>
           <tr>
@@ -61,7 +61,7 @@
                         <li><a href="/dashboard/1" class="btn btn-primary">«</a></li>
                     <% } %>
                     <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-                    <% if (i !== 1) { %>  
+                    <% if (i !== 1) { %>
                         <li class="disabled"><a  class="btn">...</a></li>
                     <% } %>
                     <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
@@ -82,7 +82,7 @@
                 </ul>
             <% } %>
 
-      
+
     </div>
 
 </body>

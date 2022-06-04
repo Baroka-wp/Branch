@@ -39,7 +39,7 @@
       <% for( let i = 0; i < data.length; i++ ) { %>
         <option value="<%= data[i] %>"><%= data[i] %></option>
       <% } %>
-      
+
     </select>
 
       </fieldset>
@@ -74,20 +74,21 @@
       <label for="experienceProgramation" >Avez Vous De L'experience en programation ?</label>
       <select name="experienceProgramation" id="Exp_Prog" required>
         <option value="" disabled selected>--Veuillez Choisir--</option>
-        <option>Je l'ai etudie brievement a lecole </option>
-        <option>J'en ai jamais entendu parler</option>
+        <option>Je lai etudie brievement a lecole </option>
+        <option>Jen ai jamais entendu parler</option>
         <option>Je peux mettre en oeuvre des programmes</option>
         <option>Je peux reparer un site web</option>
-        <option>J'ai une grande competence</option>
+        <option>Jai une grande competence</option>
         <option>Je connais bien la programation</option>
       </select>
 
           <label>Des Objectifs D'apres Formation ?</label>
-
-          <input type="checkbox" name="objectif" value="Creer Votre Propre Entreprise"><label class="light" >Creer Votre Propre Entreprise</label><br>
-          <input type="checkbox" name="objectif" value="Poursuivre les etudes"><label class="light" >Poursuivre les etudes</label><br>
-          <input type="checkbox" name="objectif" value="Chercher de l'emploi"><label class="light" >Chercher de l'emploi</label><br>
-          <input type="checkbox" name="objectif" value="Autre"><label class="light" >Autre</label>
+          <div id="checked">
+          <input type="radio" name="objectif" value="Creer Votre Propre Entreprise" checked="checked"><label class="light" >Creer Votre Propre Entreprise</label><br>
+          <input type="radio" name="objectif" value="Poursuivre les etudes" checked="checked"><label class="light" >Poursuivre les etudes</label><br>
+          <input type="radio" name="objectif" value="Chercher de l'emploi" checked="checked"><label class="light" >Chercher de lemploi</label><br>
+          <input type="radio" name="objectif" value="Autre"><label class="light" checked="checked" >Autre</label>
+          </div>
           </fieldset>
 
           <fieldset>
@@ -96,7 +97,7 @@
                 <select name="coursPrepa" id="Cours_preparatoire" required>
                   <option value="" disabled selected>--Veuillez Choisir--</option>
                   <option>Oui, je voudrais Bien !! </option>
-                  <option>Non, j'ai deja une petite experience.</option>
+                  <option>Non, jai deja une petite experience.</option>
                 </select>
           </fieldset>
 
@@ -104,8 +105,8 @@
           <label for="disponibilite" >[Votre disponibilité] Sachant que la formation dure 4 mois plus 1 mois de stage, pensez-vous avoir le temps de consacrer 8h par jour a cette formation ? </label>
             <select name="disponibilite" id="Disponibilite" required>
               <option value="" disabled selected>--Veuillez Choisir--</option>
-              <option>Oui, j'en suis sur !! </option>
-              <option>Oui, En m'organisant un peu mieux</option>
+              <option>Oui, jen suis sur !! </option>
+              <option>Oui, En morganisant un peu mieux</option>
               <option>Oui, Si je prend conge</option>
               <option>Non</option>
             </select>
@@ -134,16 +135,16 @@
             <p><a href="https://www.efset.org/cefr/b2/" rel='noopener' target="_blank">https://www.efset.org/cefr/b2/</a></p>
             <select name="niveauAnglais" id="Lang" required>
               <option value="" disabled selected>--Veuillez Choisir--</option>
-              <option>Oui, j'ai un niveau B2 ! </option>
-              <option>Oui, je l'ai appris a l'ecole</option>
-              <option>Oui, Si j'ai un certificat en Anglais</option>
+              <option>Oui, jai un niveau B2 ! </option>
+              <option>Oui, je lai appris a l'ecole</option>
+              <option>Oui, Si jai un certificat en Anglais</option>
               <option>Oui, Si je parle courament l'anglais</option>
               <option>Non, pas du tout.</option>
             </select>
           </fieldset>
 
           <fieldset>
-          <label for="accesInternet">Avez Vous Un Acces Permanent à internet ?</label>
+          <label for="accesInternet" id="exigence">Avez Vous Un Acces Permanent à internet ?</label>
           <p class="form-explain">Les exigences en matière d'accès à internet sont très importantes.</p>
           <ul class="form-explain">
             <li>vitesse de téléchargement au moins de 3 Mbps</li>
@@ -170,4 +171,112 @@
               </fieldset>
     </form>
   </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+  <script>
+    if(("<%=data2['name']%>")!=""){
+      document.getElementById('name').value="<%=data2.name%>"
+    }
+    console.log("<%=data2['name']%>")
+
+    if(("<%=data2['email']%>")!=""){
+      document.getElementById('mail').value="<%=data2.email%>"
+    }
+    console.log("<%=data2['email']%>")
+
+    if(("<%=data2['phone']%>")!=""){
+      document.getElementById('phone').value="<%=data2.phone%>"
+    }
+    console.log("<%=data2['phone']%>")
+
+    if(("<%=data2['sexe']%>")!=""){
+      document.getElementById('sex_f').value="<%=data2.sexe%>"
+    }
+    console.log("<%=data2['sexe']%>")
+
+    if(("<%=data2['sexe']%>")!=""){
+      document.getElementById('sex_m').value="<%=data2.sexe%>"
+    }
+    console.log("<%=data2['sexe']%>")
+
+    if(("<%=data2['age']%>")!=""){
+      document.getElementById('age').value="<%=data2.age%>"
+    }
+    console.log("<%=data2['age']%>")
+
+    if(("<%=data2['nationality']%>")!=""){
+      document.getElementById('pays').value="<%=data2.nationality%>"
+    }
+    console.log("<%=data2['nationality']%>")
+
+    if(("<%=data2['niveauEtude']%>")!=""){
+      document.getElementById("Niveau_D'etude").value="<%=data2.niveauEtude%>"
+    }
+    console.log("<%=data2['niveauEtude']%>")
+
+    if(("<%=data2['occupationActuelle']%>")!=""){
+      document.getElementById("Occupation_Actuelle").value="<%=data2.occupationActuelle%>"
+    }
+    console.log("<%=data2['occupationActuelle']%>")
+
+    if(("<%=data2['experienceProgramation']%>")!=""){
+      document.getElementById("Exp_Prog").value="<%=data2.experienceProgramation%>"
+    }
+    console.log("<%=data2['experienceProgramation']%>")
+
+    if(("<%=data2['coursPrepa']%>")!=""){
+      document.getElementById("Cours_preparatoire").value="<%=data2.coursPrepa%>"
+    }
+    console.log("<%=data2['coursPrepa']%>")
+
+    if(("<%=data2['disponibilite']%>")!=""){
+      document.getElementById("Disponibilite").value="<%=data2.disponibilite%>"
+    }
+    console.log("<%=data2['disponibilite']%>")
+
+    if(("<%=data2['niveauAnglais']%>")!=""){
+      document.getElementById("Lang").value="<%=data2.niveauAnglais%>"
+    }
+    console.log("<%=data2['niveauAnglais']%>")
+
+    if(("<%=data2['exigence']%>")!=""){
+      document.getElementById("exigence").value="<%=data2.exigence%>"
+    }
+    console.log("<%=data2['exigence']%>")
+
+    if(("<%=data2['bio']%>")!=""){
+      document.getElementById("bio").value="<%=data2.bio%>"
+    }
+    console.log("<%=data2['bio']%>")
+
+    if(("<%=data2['objectif']%>")!=""){
+      radiobtn=document.getElementById("checked").value="<%=data2.objectif%>"
+      radiobtn.checked = "<%=data2.objectif%>";
+    }
+    console.log("<%=data2['objectif']%>")
+
+
+
+
+
+      if ("<%=message['success']%>"!="") {
+          Swal.fire({
+            icon: 'success',
+            text:"<%= message['success'] %>"
+        })
+      }
+     else if("<%=message['error']%>"!=""){
+        Swal.fire({
+          icon: 'error',
+          text:"<%= message['error'] %>"
+       })
+     }
+     else if("<%=message['warning']%>"!=""){
+      Swal.fire({
+          icon: 'warning',
+          text:"<%= message['warning'] %>"
+       })
+     }
+
+ </script>
 </html>
